@@ -14,3 +14,9 @@ jobs:
       - uses: sigstore/gh-action-sigstore-python@v3.0.0
         with:
           inputs: foo.txt
+      - run: |
+          git config --global user.name 'reandreev-asml'
+          git config --global user.email '179727936+reandreev-asml@users.noreply.github.com'
+          git add /home/runner/work/sigstore-test/sigstore-test/foo.txt.sigstore.json
+          git commit -am "Update bundle"
+          git push
