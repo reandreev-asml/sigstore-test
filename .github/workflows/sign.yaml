@@ -1,0 +1,15 @@
+name: Sigstore
+
+on:
+  push:
+
+jobs:
+  sigstore-sign:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: sigstore/gh-action-sigstore-python@v3.0.0
+        with:
+          inputs: foo.txt
